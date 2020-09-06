@@ -16,8 +16,10 @@ const CreateEmployee =() => {
             style={styles.inputStyle}
             value= {Name}
             theme = {theme}
+            mode="outlined"
             onChangeText={text => setName(text)}            
             />
+
             <TextInput 
             label = 'Email'
             style={styles.inputStyle}
@@ -26,42 +28,76 @@ const CreateEmployee =() => {
             mode="outlined"
             onChangeText={text => setEmail(text)}            
             />
+
             <TextInput 
             label = 'Phone'
             style={styles.inputStyle}
             value= {Phone}
             theme = {theme}
+            mode="outlined"
             keyboardType="number-pad"
             onChangeText={text => setPhone(text)}            
             />
+
             <TextInput 
             label = 'Salary'
             style={styles.inputStyle}
-            value= {Phone}
+            value= {Salary}
             theme = {theme}
+            mode="outlined"
+            keyboardType="number-pad"
             onChangeText={text => setSalary(text)}            
             />
-            <Button icon="upload" mode="contained" onPress={() => setModal(true)}>
-                Press here
+
+            <Button
+                icon="upload" 
+                mode="contained"
+                style={styles.inputStyle}
+                theme = {theme}
+                onPress={() => setModal(true)}>
+                    upload image
             </Button>
+
+            <Button
+                icon="content-save" 
+                mode="contained"
+                style={styles.inputStyle}
+                theme = {theme}
+                onPress={() => console.log("saved")}>
+                    save
+            </Button>
+            
             <Modal
             animationType="slide"
-            transparent={false}
+            transparent={true}
             visible={modal}
             onRequestClose={() => {
                 setModal(false)
             }}
             >
-                <View>
+                <View style={styles.modalView}>
                     <View style={styles.modalButtonView}>
-                        <Button icon="camera"  mode="contained" onPress={() => setModal(false)}>
-                            cancel
-                        </Button>           
-                        <Button icon="camera"  mode="contained" onPress={() => setModal(false)}>
-                            cancel
-                        </Button>                
+
+                        <Button
+                        icon="camera"
+                        mode="contained"
+                        theme = {theme}
+                        onPress={() => console.log("Pressed")}>
+                            camera
+                        </Button>      
+
+                        <Button
+                        icon="image-area"
+                        mode="contained"
+                        theme = {theme}
+                        onPress={() => setModal(false)}>
+                            gallery
+                        </Button>  
+
                     </View>
-                    <Button icon="camera" onPress={() => setModal(false)}>
+                    <Button
+                    theme = {theme}
+                    onPress={() => setModal(false)}>
                             cancel
                     </Button>                    
                 </View>
@@ -81,13 +117,19 @@ const styles = StyleSheet.create({
         flex:1
     },
     inputStyle: {
-        margin:5
+        margin:5,
     },
-    // modalButtonView: {
-    //     position:"absolute",
-    //     bottom:2,
-    //     width:100%
-    // },
+    modalButtonView:{
+        flexDirection:"row",
+        justifyContent:"space-around",
+        padding:10
+    },
+    modalView:{
+        position:"absolute",
+        bottom:2,
+        width:"100%",
+        backgroundColor: "white"
+    }
 })
 
 export default CreateEmployee;

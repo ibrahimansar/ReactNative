@@ -3,13 +3,15 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Constants from 'expo-constants';
 import { Home } from './screen/Home';
+import Profile from './screen/Profile';
 import CreateEmployee from './screen/CreateEmployee';
 
 export default function App() {
   return (
     <View style={styles.container}>
       {/* <Home /> */}
-      <CreateEmployee />
+      {/* <CreateEmployee /> */}
+      <Profile />
       <StatusBar style="auto" />
     </View>
   );
@@ -18,7 +20,7 @@ export default function App() {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: '#ebebeb',
+    backgroundColor: '#e0e0e0',
     marginTop: Constants.statusBarHeight,
   },
 };
